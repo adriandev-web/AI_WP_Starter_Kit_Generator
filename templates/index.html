@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator Skryptu Instalacyjnego WordPress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Generator Skryptu Instalacyjnego WordPress</h1>
+        <p>Wybierz wtyczki, które chcesz zainstalować, a następnie wygeneruj skrypt instalacyjny.</p>
+
+        <form action="/generate" method="post">
+            <h2>Wtyczki Domyślne</h2>
+            <div>
+                <input type="checkbox" id="elementor" name="plugins" value="elementor" checked>
+                <label for="elementor">Elementor</label>
+            </div>
+            <div>
+                <input type="checkbox" id="contact-form-7" name="plugins" value="contact-form-7" checked>
+                <label for="contact-form-7">Contact Form 7</label>
+            </div>
+            <div>
+                <input type="checkbox" id="yoast" name="plugins" value="yoast" checked>
+                <label for="yoast">Yoast SEO</label>
+            </div>
+            <div>
+                <input type="checkbox" id="wordfence" name="plugins" value="wordfence">
+                <label for="wordfence">Wordfence Security</label>
+            </div>
+
+            <h2>Własne Wtyczki</h2>
+            <label for="custom_plugins">Wpisz slug wtyczki, każda w nowej linii:</label>
+            <textarea id="custom_plugins" name="custom_plugins" rows="4"></textarea>
+
+            <input type="submit" value="Generuj Skrypt">
+        </form>
+    </div>
+</body>
+</html>

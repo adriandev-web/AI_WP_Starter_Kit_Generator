@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator Konfiguracji WordPress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Generator Konfiguracji WordPress</h1>
+        <p>Wybierz wtyczki i ustaw globalne style Elementora, a następnie wygeneruj plik konfiguracyjny.</p>
+
+        <form action="/generate" method="post">
+
+            <div class="form-section">
+                <h2>Wtyczki</h2>
+                <p>Zaznacz wtyczki, które chcesz zainstalować.</p>
+                <div>
+                    <input type="checkbox" id="elementor" name="plugins" value="elementor" checked>
+                    <label for="elementor" style="font-weight:normal; display:inline;">Elementor (wymagany do ustawienia stylów)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="contact-form-7" name="plugins" value="contact-form-7" checked>
+                    <label for="contact-form-7" style="font-weight:normal; display:inline;">Contact Form 7</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="yoast" name="plugins" value="yoast" checked>
+                    <label for="yoast" style="font-weight:normal; display:inline;">Yoast SEO</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="wordfence" name="plugins" value="wordfence">
+                    <label for="wordfence" style="font-weight:normal; display:inline;">Wordfence Security</label>
+                </div>
+                <br>
+                <label for="custom_plugins"><b>Własne Wtyczki</b> (wpisz slug, każda w nowej linii):</label>
+                <textarea id="custom_plugins" name="custom_plugins" rows="4"></textarea>
+            </div>
+
+            <div class="form-section">
+                <h2>Globalne Style Elementora</h2>
+                <p>Ustaw globalne kolory i fonty dla Twojej strony.</p>
+
+                <label>Kolory Główne:</label>
+                <div class="color-input-group">
+                    <label for="color_primary">Primary</label>
+                    <input type="color" id="color_primary" name="color_primary" value="#6EC1E4">
+                </div>
+                <div class="color-input-group">
+                    <label for="color_secondary">Secondary</label>
+                    <input type="color" id="color_secondary" name="color_secondary" value="#54595F">
+                </div>
+                <div class="color-input-group">
+                    <label for="color_text">Text</label>
+                    <input type="color" id="color_text" name="color_text" value="#7A7A7A">
+                </div>
+                <div class="color-input-group">
+                    <label for="color_accent">Accent</label>
+                    <input type="color" id="color_accent" name="color_accent" value="#61CE70">
+                </div>
+
+                <br>
+                <label>Rodziny Fontów:</label>
+                <p style="font-size: small; color: #555;">(np. 'Arial', 'Helvetica', 'Georgia', 'Times New Roman')</p>
+                <label for="font_primary">Primary Headline</label>
+                <input type="text" id="font_primary" name="font_primary" value="Roboto">
+
+                <label for="font_secondary">Secondary Headline</label>
+                <input type="text" id="font_secondary" name="font_secondary" value="Roboto Slab">
+
+                <label for="font_text">Body Text</label>
+                <input type="text" id="font_text" name="font_text" value="Roboto">
+
+                <label for="font_accent">Accent Text</label>
+                <input type="text" id="font_accent" name="font_accent" value="Roboto">
+            </div>
+
+            <input type="submit" value="Generuj Plik Konfiguracyjny">
+        </form>
+    </div>
+</body>
+</html>
